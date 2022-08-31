@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Missle.h"
 #include "Drone.generated.h"
 
 //Ç°ÏòÉùÃ÷(forward declaration)
@@ -62,6 +63,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Init");
 	float PaddleRotateSpeed = 1000.0f;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AMissle> Bullet;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -74,6 +78,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
+	UFUNCTION()
+	void DoFire();
+
 	UFUNCTION()
 	void Lift(float value);
 

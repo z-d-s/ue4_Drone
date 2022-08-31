@@ -94,11 +94,18 @@ void ADrone::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ADrone::DoFire);
+
 	
 	//[BindAction属于一次性的输入，比如：开火、跳跃]  [BindAxis属于持续性的输入，比如一直按住按键向前移动等]
 	PlayerInputComponent->BindAxis("Lift", this, &ADrone::Lift);
 	PlayerInputComponent->BindAxis("Forward", this, &ADrone::Forward);
 	PlayerInputComponent->BindAxis("Turn", this, &ADrone::Turn);
+}
+
+void ADrone::DoFire()
+{
+	GetWorld()->SpawnActor<AMissle>(Bullet, Mesh->GetSocketTransform(TEXT("FireSocket")));
 }
 
 void ADrone::Lift(float value)

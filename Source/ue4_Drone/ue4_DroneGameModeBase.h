@@ -14,4 +14,7 @@ class UE4_DRONE_API Aue4_DroneGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	UPROPERTY()
+	uint32 points;
 };
