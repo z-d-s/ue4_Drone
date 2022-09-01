@@ -28,6 +28,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Sound")
 	USoundBase* ExplosionSound;
 
+	UPROPERTY(EditAnywhere, Category = "FloatSpeed")
+	float FloatSpeed = 500.0f;
+
 	UFUNCTION()
 	void DestroyHandler(AActor* DestroyedActor);
 

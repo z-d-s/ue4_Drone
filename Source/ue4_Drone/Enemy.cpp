@@ -35,5 +35,6 @@ void AEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	this->AddActorLocalOffset(FVector(0.0f, 0.0f, 1.0f) * FloatSpeed * DeltaTime);
 }
 
